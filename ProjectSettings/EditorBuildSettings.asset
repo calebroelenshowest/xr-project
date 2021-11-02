@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/XR Scene Hololens.unity
+    guid: d0510eed6fa3c314e98fe6a6ecf0991e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8e876df6df567084cbc40bf717740a5a,
       type: 2}

@@ -135,7 +135,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 836987499820634374, guid: fbe480e2fb59fb1429a5a9d9aa1f554b, type: 2}
+  - {fileID: -8232131304456466605, guid: 8e876df6df567084cbc40bf717740a5a, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -612,11 +614,12 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: LittleAlchemyXR
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\caleb\OneDrive\Documenten\Howest\5 unity\XR project\XR
+    Project (Github enabled)\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80c9b6020febd801
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: XR Project (Github enabled)
