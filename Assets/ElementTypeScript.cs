@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.Utilities;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class ElementTypeScript : MonoBehaviour
@@ -14,6 +16,7 @@ public class ElementTypeScript : MonoBehaviour
     [SerializeField] public Material combinationMaterial;
     [SerializeField] public Material resultMaterial;
     [SerializeField] public bool holoHolding = false;
+    public bool onCollisionStayBehind;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,10 @@ public class ElementTypeScript : MonoBehaviour
 
     public void OnCollisionStay(Collision other)
     {
+        if (!other.gameObject.CompareTag(this.gameObject.tag))
+        {
+            return;
+        }
         if (holoHolding)
         {
             Debug.Log("Holding");
@@ -52,6 +59,19 @@ public class ElementTypeScript : MonoBehaviour
         else
         {
             Debug.Log("Not holding");
+            // Combine elements
+            if (onCollisionStayBehind) return; // Cancel destruction
+            other.gameObject.GetComponent<ElementTypeScript>().onCollisionStayBehind = true;
+            Destroy(other.gameObject);
+            gameObject.GetComponent<Collider>().enabled = false;
+            GameObject newElement = Instantiate(gameObject);
+            ElementTypeScript script = newElement.gameObject.GetComponent<ElementTypeScript>();
+            script.unlocked = true;
+            script.elementMaterial = resultMaterial;
+            script.isFinal = true;
+            Destroy(gameObject);
+
+
         }
     }
 
