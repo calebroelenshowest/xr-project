@@ -45,11 +45,11 @@ public class Combinations : MonoBehaviour
     }
 
     // On collision
-    private void OnCollisionStay(Collision collisionElement)
+    private void OnCollisionEnter(Collision collisionElement)
     {
         // Does the object have the same tag: Element
-        if (collisionElement.gameObject.CompareTag(gameObject.tag))
-        {
+        if (collisionElement.gameObject.CompareTag(gameObject.tag)){
+            
             // If still holding the object --> Do not combine
             if (_holdingOjbect)
             {
@@ -57,9 +57,10 @@ public class Combinations : MonoBehaviour
                 return;
             }
             // If not holding --> Combine both elements if possible
-            Material collisionMaterial = collisionElement.gameObject.GetComponent<Renderer>().material;
+            Material collisionMaterial = collisionElement.gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().material;
+            Debug.Log(collisionMaterial.name);
             // Cannot combine with itself.
-            if (collisionMaterial == gameObject.GetComponent<Renderer>().material)
+            if (collisionMaterial == gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().material)
             {
                 Debug.Log("Same element collision"); 
                 return; 
@@ -68,18 +69,22 @@ public class Combinations : MonoBehaviour
             if (elementCombinations.Count == 0)
             {
                 Debug.Log("No elements counted");
+                Debug.Log("Final element!");
                 return;
             } // This is a final element --> No elements inside
-            
+
             bool foundMatching = false;
             foreach(ElementCombination combination in elementCombinations)
             {
-                if (combination.elementMaterial == collisionMaterial)
+                Debug.Log($"{combination.elementMaterial.name} ?= {collisionMaterial.name}");
+                if (combination.elementMaterial.mainTexture == collisionMaterial.mainTexture)
                 {
+                    Debug.Log("Triggered for loop");
                     foundMatching = true;
                     // Destroy colling object and remove existing collider on existing object.
                     if (onCollisionStayBehind) return;
                     collisionElement.gameObject.GetComponent<Combinations>().onCollisionStayBehind = true;
+                    Destroy(collisionElement.gameObject.GetComponent<Combinations>());
                     Destroy(collisionElement.gameObject);
                     gameObject.GetComponent<Collider>().enabled = false;
                     // Spawn the resulting combination
@@ -105,6 +110,7 @@ public class Combinations : MonoBehaviour
         else
         {
             // Combination of elements not allowed.
+            Debug.Log("This collision is with da floor");
             return;
         }
     }
