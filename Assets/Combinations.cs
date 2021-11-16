@@ -5,6 +5,7 @@ using Microsoft.MixedReality.Toolkit.Rendering;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class ElementCombination
@@ -52,12 +53,26 @@ public class Combinations : MonoBehaviour
         if (collisionElement.gameObject.CompareTag(gameObject.tag))
         {
             // If still holding the object --> Do not combine
-            if (_holdingOjbect) return;
+            if (_holdingOjbect)
+            {
+                Debug.Log("Invalid holding state");
+                return;
+            }
             // If not holding --> Combine both elements if possible
-            Material collisionMaterial = collisionElement.gameObject.GetComponent<Renderer>().material;
+            Material collisionMaterial = collisionElement.gameObject.GetComponent<Combinations>().displayMaterial;
             // Cannot combine with itself.
-            if (collisionMaterial == gameObject.GetComponent<Renderer>().material) return;
-            if (elementCombinations.Count == 0) return; // This is a final element --> No elements inside
+            if (collisionMaterial == gameObject.GetComponent<Renderer>().material)
+            {
+                Debug.Log("Same element collision"); 
+                return; 
+            } 
+                
+            if (elementCombinations.Count == 0)
+            {
+                Debug.Log("No elements counted");
+                return;
+            } // This is a final element --> No elements inside
+            
             bool foundMatching = false;
             foreach(ElementCombination combination in elementCombinations)
             {
@@ -71,7 +86,9 @@ public class Combinations : MonoBehaviour
                     gameObject.GetComponent<Collider>().enabled = false;
                     // Spawn the resulting combination
                     int index = elementCombinations.IndexOf(combination);
-                    Instantiate(elementCombinations[index].resultPrefab);
+                    Vector3 gameObjectPos = gameObject.transform.position;
+                    Instantiate(elementCombinations[index].resultPrefab,
+                        new Vector3(gameObjectPos.x, gameObjectPos.y + 1, gameObjectPos.z), Quaternion.identity);
                     // Remove the existing element
                     Destroy(gameObject);
                     
@@ -79,7 +96,12 @@ public class Combinations : MonoBehaviour
             }
 
             // No matching material? Cancel!
-            if (!foundMatching) return;
+            if (!foundMatching)
+            {
+                Debug.Log("No maching material found");
+                return;
+            }
+                
             
         }
         else

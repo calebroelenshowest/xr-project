@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 8249047947640032620}
   - component: {fileID: 8249047947640032623}
   - component: {fileID: 8249047947640032622}
-  - component: {fileID: 4108389760830185566}
   - component: {fileID: -9009389886740413375}
   - component: {fileID: 7816610730320378497}
   - component: {fileID: 1020243870905184378}
   - component: {fileID: 8235996154580996009}
   - component: {fileID: 8877372110344365623}
   - component: {fileID: 941917807308519437}
+  - component: {fileID: 843539200844152937}
   m_Layer: 0
   m_Name: Water
   m_TagString: Element
@@ -154,8 +154,8 @@ MonoBehaviour:
   onManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4108389760830185566}
-        m_TargetAssemblyTypeName: ElementTypeScript, Assembly-CSharp
+      - m_Target: {fileID: 843539200844152937}
+        m_TargetAssemblyTypeName: Combinations, Assembly-CSharp
         m_MethodName: HoldObject
         m_Mode: 1
         m_Arguments:
@@ -169,8 +169,8 @@ MonoBehaviour:
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4108389760830185566}
-        m_TargetAssemblyTypeName: ElementTypeScript, Assembly-CSharp
+      - m_Target: {fileID: 843539200844152937}
+        m_TargetAssemblyTypeName: Combinations, Assembly-CSharp
         m_MethodName: ReleaseObject
         m_Mode: 1
         m_Arguments:
@@ -201,26 +201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
---- !u!114 &4108389760830185566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249047947640032609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce3831b064d134439a90ca3185d79aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementMaterial: {fileID: 0}
-  lockedMaterial: {fileID: 2100000, guid: d342a8ba435b5a144846f09d0026dd54, type: 2}
-  unlocked: 0
-  isFinal: 0
-  combinationMaterial: {fileID: 0}
-  resultMaterial: {fileID: 0}
-  holoHolding: 0
-  onCollisionStayBehind: 0
 --- !u!54 &-9009389886740413375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5129,6 +5109,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &843539200844152937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249047947640032609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayMaterial: {fileID: 2100000, guid: e0e40f5bd6097824e94c6455da02b8f0, type: 2}
+  elementCombinations:
+  - elementMaterial: {fileID: 2100000, guid: 3d6bbdb426941e44b814ab8ca256d660, type: 2}
+    resultPrefab: {fileID: 138380681645529475, guid: 57b74bad47db20c45b4c5f840e012a2d,
+      type: 3}
 --- !u!1 &8249047947892687874
 GameObject:
   m_ObjectHideFlags: 0

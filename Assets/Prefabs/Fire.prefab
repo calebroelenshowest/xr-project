@@ -210,17 +210,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8249047947640032609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce3831b064d134439a90ca3185d79aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementMaterial: {fileID: 0}
-  lockedMaterial: {fileID: 2100000, guid: d342a8ba435b5a144846f09d0026dd54, type: 2}
-  unlocked: 0
-  isFinal: 0
-  combinationMaterial: {fileID: 0}
-  resultMaterial: {fileID: 0}
-  holoHolding: 0
-  onCollisionStayBehind: 0
+  displayMaterial: {fileID: 2100000, guid: 3d6bbdb426941e44b814ab8ca256d660, type: 2}
+  elementCombinations:
+  - elementMaterial: {fileID: 2100000, guid: e0e40f5bd6097824e94c6455da02b8f0, type: 2}
+    resultPrefab: {fileID: 8249047947640032609, guid: bf1d57f428b9efc4a93371dc43a03a1f,
+      type: 3}
 --- !u!54 &-9009389886740413375
 Rigidbody:
   m_ObjectHideFlags: 0
