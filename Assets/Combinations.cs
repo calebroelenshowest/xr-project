@@ -16,7 +16,6 @@ public class ElementCombination
 
 public class Combinations : MonoBehaviour
 {
-    [SerializeField] public Material displayMaterial;
     [SerializeField]
     public List<ElementCombination> elementCombinations;
 
@@ -25,7 +24,6 @@ public class Combinations : MonoBehaviour
     public bool onCollisionStayBehind = false;
     void Start()
     {
-        gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().material = displayMaterial;
     }
     
     void Update()
@@ -59,7 +57,7 @@ public class Combinations : MonoBehaviour
                 return;
             }
             // If not holding --> Combine both elements if possible
-            Material collisionMaterial = collisionElement.gameObject.GetComponent<Combinations>().displayMaterial;
+            Material collisionMaterial = collisionElement.gameObject.GetComponent<Renderer>().material;
             // Cannot combine with itself.
             if (collisionMaterial == gameObject.GetComponent<Renderer>().material)
             {
@@ -91,14 +89,14 @@ public class Combinations : MonoBehaviour
                         new Vector3(gameObjectPos.x, gameObjectPos.y + 1, gameObjectPos.z), Quaternion.identity);
                     // Remove the existing element
                     Destroy(gameObject);
-                    
+                    break;
                 }
             }
 
             // No matching material? Cancel!
             if (!foundMatching)
             {
-                Debug.Log("No maching material found");
+                Debug.Log("No matching material found");
                 return;
             }
                 
