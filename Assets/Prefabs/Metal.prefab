@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -6164391206445614175}
   - component: {fileID: -7771722541845290066}
   - component: {fileID: -8579704739279445041}
+  - component: {fileID: 1025094892784627819}
   m_Layer: 0
   m_Name: Metal
   m_TagString: Element
@@ -178,10 +179,34 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025094892784627819}
+        m_TargetAssemblyTypeName: Combinations, Assembly-CSharp
+        m_MethodName: HoldObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   onManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025094892784627819}
+        m_TargetAssemblyTypeName: Combinations, Assembly-CSharp
+        m_MethodName: ReleaseObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   onHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -284,6 +309,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1025094892784627819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138380681645529475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementCombinations: []
 --- !u!1 &8352612144268833885
 GameObject:
   m_ObjectHideFlags: 0
