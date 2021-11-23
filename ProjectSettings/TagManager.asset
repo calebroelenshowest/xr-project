@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Element
   - Floor
+  - Ghost
   layers:
   - Default
   - TransparentFX

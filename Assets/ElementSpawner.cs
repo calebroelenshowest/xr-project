@@ -4,22 +4,30 @@ using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
 
-[SerializeField]
-public class ElementSpawnerLocations
-{
-    public GameObject gameObjectToSpawn;
-    public bool unlocked;
-}
-
-
 public class ElementSpawner : MonoBehaviour
 {
+    [System.Serializable]
+    public class ElementSpawnerLocation
+    {
+        [SerializeField] public GameObject gameObjectToSpawn;
+        [SerializeField] public bool unlocked;
+        [SerializeField] public Transform position;
+    }
     // Start is called before the first frame update
     [SerializeField]
-    public ElementSpawnerLocations[] Locations;
+    public List<ElementSpawnerLocation> Locations;
     void Start()
     {
-        
+        foreach (ElementSpawnerLocation location in Locations)
+        {
+            // Check for state
+            if (location.unlocked)
+            {
+                //Continue
+                // --> Spawn this element !
+                Instantiate(location.gameObjectToSpawn, location.position);
+            }
+        }
     }
 
     // Update is called once per frame
