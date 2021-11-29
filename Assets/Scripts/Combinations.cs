@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.Rendering;
 using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 [System.Serializable]
 public class ElementCombination
@@ -16,6 +18,7 @@ public class ElementCombination
 
 public class Combinations : MonoBehaviour
 {
+
     [SerializeField]
     public List<ElementCombination> elementCombinations;
 
@@ -43,10 +46,12 @@ public class Combinations : MonoBehaviour
         Debug.Log("Released this object with hand. No longer holding this.");
         _holdingOjbect = false;
     }
-
+    
     // On collision
     private void OnCollisionEnter(Collision collisionElement)
     {
+        // Object should be still
+        // if (collisionElement.relativeVelocity != Vector3.zero) return;
         // Does the object have the same tag: Element
         if (collisionElement.gameObject.CompareTag(gameObject.tag)){
             
