@@ -39,6 +39,7 @@ public class Shelf : MonoBehaviour
             GameObject spawned = Instantiate(element.element, spawnPositions[index]);
             spawned.transform.parent = null;
             spawned.transform.localScale = defaultSize;
+            Destroy(spawned.GetComponent<Rigidbody>());
             index++;
         }
     }
@@ -73,7 +74,7 @@ public class Shelf : MonoBehaviour
             
             if (collisionGameObjectMaterial == elementGameObjectMaterial)
             {
-                Debug.Log("Its fire boyzzz!");
+                Debug.Log("Its da same collision element bro its good!");
                 // Found a matching object
                 foundResult = true;
                 respawnElement = element;

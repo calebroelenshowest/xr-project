@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Rendering;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEditor.SearchService;
@@ -45,6 +46,12 @@ public class Combinations : MonoBehaviour
     {
         Debug.Log("Released this object with hand. No longer holding this.");
         _holdingOjbect = false;
+
+        if (!gameObject.GetComponent<Rigidbody>())
+        {
+            Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+            rb.mass = 1.0f;
+        }
     }
     
     // On collision
@@ -109,8 +116,6 @@ public class Combinations : MonoBehaviour
                 Debug.Log("No matching material found");
                 return;
             }
-                
-            
         }
         else
         {

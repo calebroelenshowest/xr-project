@@ -2990,6 +2990,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303602, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2041831612}
+    - target: {fileID: 9174057301020303602, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303602, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303603, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303603, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_DynamicPixelsPerUnit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3033,6 +3058,21 @@ PrefabInstance:
     - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9174057301020303605, guid: 0344107525c9dab44a04b283aff2414b,
@@ -4024,7 +4064,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32176
+  m_Name: pb_Mesh33892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
