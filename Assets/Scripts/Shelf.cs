@@ -26,11 +26,11 @@ public class Shelf : MonoBehaviour
     public Element[] Elements; // Maximum 6 elements
     void Start()
     {
+        SaveData.LogSaveData("UnlockedElements");
         // Populate the shelf with elements
         // Use the children of the shelf as spawn positions.
         // Step 1: Get children (spawn positions)
         var childCount = transform.childCount;
-        Debug.Log($"Found {childCount} spawnpositions.");
         if (childCount == 0)
         {
             // Spawnpositions are missing
@@ -38,17 +38,18 @@ public class Shelf : MonoBehaviour
         }
         // How many elements are added to the shelf?
         var shelfElementCount = Elements.Length;
+        
+        // Load save data
+        string[] unlockedElementNames = SaveData.GetAllUnlockedElementNames();
         // Are all knows elements filled? No empty list items?
         // Is the element unlocked already?
-
-        string[] unlockedElementNames = SaveData.GetAllUnlockedElementNames();
-        
+        Element[] markedForRemoval = new Element[Elements.Length];
         for (int i = 0; i < Elements.Length; i++)
         {
             if (Elements[i] == default(Element))
             {
                 // This is an empty element
-                Elements = Elements.Except(new[] {Elements[i]}).ToArray();
+                markedForRemoval[i] = Elements[i];
                 // Removed from the Elements list.
                 Debug.LogWarning("There is an empty element in this shelf! Please remove it to avoid future problems.");
                 continue;
@@ -56,24 +57,32 @@ public class Shelf : MonoBehaviour
             
             // Unlock mechanism
             bool unlocked = false;
-            
+            string checkingElementName = GetElementName(Elements[i].element);
             for(int j = 0; j < unlockedElementNames.Length; j++)
             {
                 string unlockedElementName = unlockedElementNames[j];
-                string checkingElementName = GetElementName(Elements[i].element);
                 unlocked = unlockedElementName == checkingElementName;
+                if (unlocked) {
+                    Debug.LogWarning($"This element will be added: {unlockedElementName}");
+                    break; // Found the matching element: stop searching and break.
+                }           
             }
-
-            if (!unlocked)
-            {
-                // The element has not been unlocked yet. Remove.
-                Elements = Elements.Except(new[] {Elements[i]}).ToArray();
-            }
-
+            
+            // If element has been unlocked
+            if (unlocked) continue;
+            // The element has not been unlocked yet. Remove.
+            markedForRemoval[i] = Elements[i];
+        }
+        // Remove all elements marked for removal.
+        for (int x = 0; x < markedForRemoval.Length; x++)
+        {
+            if(markedForRemoval[x] == default(Element)) continue;
+            if(markedForRemoval[x] == null) continue;
+            Elements = Elements.Except(new []{markedForRemoval[x]}).ToArray();
         }
         // Done cleaning up the Elements array. Try spawning in the elements.
-        var elementsCount = Elements.Length;
-        
+        int elementsCount = Elements.Length;
+        Debug.LogWarning($"Element count left: {elementsCount}");
         for (int i = 0; i < elementsCount; i++)
         {
             SpawnGameObject(Elements[i], transform.GetChild(i));
@@ -135,6 +144,7 @@ public class Shelf : MonoBehaviour
                 return gameObjectMaterial.name;
             }
         }
+        Debug.LogWarning($"This element is missing a ElementMaterial Tag! {gameObject}");
         return "";
     }
 
@@ -160,5 +170,4 @@ public class Shelf : MonoBehaviour
         SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
 
     }
-    
 }
