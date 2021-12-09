@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree pre
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ee6765da7db992e42a63c23f4e2c42e0, type: 3}
+      propertyPath: m_TagString
+      value: ElementMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ee6765da7db992e42a63c23f4e2c42e0, type: 3}
       propertyPath: m_RootOrder
       value: 0

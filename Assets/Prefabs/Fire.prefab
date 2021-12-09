@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1148859035747426896}
   - component: {fileID: 6014314442830769766}
   - component: {fileID: 4358061951530979434}
+  - component: {fileID: 7593063271770248965}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Element
@@ -225,7 +226,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 924d9469b2cbff54ebebf4c3d1c55d08, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -335,6 +336,19 @@ MonoBehaviour:
   - elementMaterial: {fileID: 2100000, guid: 3ca3717490c273a4f88e71209ac7b4fc, type: 2}
     resultPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
       type: 3}
+--- !u!114 &7593063271770248965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138380681645529475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1656c22b8b80b36438cc0c48d01cfaa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glassSoundEnabled: 0
 --- !u!1 &6370150533496893529
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +535,7 @@ GameObject:
   - component: {fileID: 8385085630368305148}
   m_Layer: 0
   m_Name: Fire pre
-  m_TagString: Untagged
+  m_TagString: ElementMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

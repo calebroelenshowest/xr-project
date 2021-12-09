@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SoundEffects : MonoBehaviour
 {
+    [SerializeField] public bool glassSoundEnabled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class SoundEffects : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") && glassSoundEnabled)
         {
             AudioSource sound = GetComponent<AudioSource>();
             sound.Play();

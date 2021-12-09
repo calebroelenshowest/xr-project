@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickaxe_LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 108562, guid: e1239991fa745f64a9ef787ae6db26a2, type: 3}
+      propertyPath: m_TagString
+      value: ElementMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 439376, guid: e1239991fa745f64a9ef787ae6db26a2, type: 3}
       propertyPath: m_RootOrder
       value: 0
