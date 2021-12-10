@@ -324,18 +324,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
-  - elementMaterial: {fileID: 2100000, guid: e8f0948de5bab62478d2f18ecbd57608, type: 2}
-    resultPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
+  - elementPrefab: {fileID: 138380681645529475, guid: 57b74bad47db20c45b4c5f840e012a2d,
       type: 3}
-  - elementMaterial: {fileID: 2100000, guid: cf2faa21c43f23747a262afe5202887d, type: 2}
     resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
       type: 3}
-  - elementMaterial: {fileID: 2100000, guid: 8d4b182bb292174468d511dc0ae1f4b5, type: 2}
+  - elementPrefab: {fileID: 0}
+    resultPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
+      type: 3}
+  - elementPrefab: {fileID: 0}
     resultPrefab: {fileID: 138380681645529475, guid: b3d9232989d1c554cb0b764de34649d8,
       type: 3}
-  - elementMaterial: {fileID: 2100000, guid: 3ca3717490c273a4f88e71209ac7b4fc, type: 2}
+  - elementPrefab: {fileID: 0}
     resultPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
       type: 3}
+  onCollisionCode: 0
 --- !u!114 &7593063271770248965
 MonoBehaviour:
   m_ObjectHideFlags: 0

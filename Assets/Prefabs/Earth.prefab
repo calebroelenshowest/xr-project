@@ -132,7 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
-  - elementMaterial: {fileID: 2100000, guid: 3d6bbdb426941e44b814ab8ca256d660, type: 2}
+  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
       type: 3}
 --- !u!114 &7554011317924686922

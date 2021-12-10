@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Rendering;
 using Microsoft.MixedReality.Toolkit.Utilities;
@@ -13,27 +14,30 @@ using Object = UnityEngine.Object;
 [System.Serializable]
 public class ElementCombination
 {
-    public Material elementMaterial;
+    public GameObject elementPrefab;
     public GameObject resultPrefab;
 }
 
 public class Combinations : MonoBehaviour
 {
-
-    [SerializeField]
-    public List<ElementCombination> elementCombinations;
-
-    private bool _holdingOjbect;
     [NonSerialized]
+    public bool onCoolDown = false;
+    [SerializeField] 
+    public List<ElementCombination> elementCombinations;
+    private bool _holdingOjbect;
+    [NonSerialized] 
     public bool onCollisionStayBehind = false;
+
+    public bool onCollisionCode = false;
+
     void Start()
     {
     }
-    
+
     void Update()
     {
         // Update method : Update once every frame
-        
+
     }
 
     public void HoldObject()
@@ -53,75 +57,115 @@ public class Combinations : MonoBehaviour
             rb.mass = 1.0f;
         }
     }
-    
+
     // On collision
     private void OnCollisionEnter(Collision collisionElement)
     {
-        // Object should be still
-        // if (collisionElement.relativeVelocity != Vector3.zero) return;
-        // Does the object have the same tag: Element
-        if (collisionElement.gameObject.CompareTag(gameObject.tag)){
-            
-            // If still holding the object --> Do not combine
-            if (_holdingOjbect)
+        // On cooldown ?
+        if (onCoolDown) return;
+        StartCoroutine(OnCoolDown());
+        if (onCollisionCode) return;
+        onCollisionCode = true;
+        // If it doesn't have a Element Tag, don't bother running this code.
+        if(!collisionElement.gameObject.CompareTag("Element"))
+        {
+            onCollisionCode = false;
+            return;
+        }
+        // First step: Determine what element the other object has!
+        GameObject collidedObject = collisionElement.gameObject;
+        // Get the material associated with the object.
+        var collidedObjectMaterial = GetGameObjectMaterial(collidedObject);
+        // Cancel if material is null (a.k.a not found)
+        if (collidedObjectMaterial is null) { onCollisionCode = false; return;}
+        // Continue with code --> Basic checks complete.
+        // Do the collided object have the same name?
+        if (collidedObjectMaterial.name == GetGameObjectMaterial(gameObject).name) { onCollisionCode = false; return;}
+        // The object have different inner element --> Check if they have a combination!
+        // Loop over the combinations and compare them.
+        GameObject resultGameObjectFound = null;
+        for (int i = 0; i < elementCombinations.Count; i++)
+        {
+            var prefab = elementCombinations[i].elementPrefab;
+            if(prefab is null) continue; // Entry is not filled.
+            var combinationMaterialName = GetGameObjectMaterial(prefab);
+            if (combinationMaterialName is null) continue; // Continue if null
+            if (combinationMaterialName.name == collidedObjectMaterial.name)
             {
-                Debug.Log("Invalid holding state");
-                return;
-            }
-            // If not holding --> Combine both elements if possible
-            Material collisionMaterial = collisionElement.gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().material;
-            Debug.Log(collisionMaterial.name);
-            // Cannot combine with itself.
-            if (collisionMaterial == gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().material)
-            {
-                Debug.Log("Same element collision"); 
-                return; 
-            } 
-                
-            if (elementCombinations.Count == 0)
-            {
-                Debug.Log("No elements counted");
-                Debug.Log("Final element!");
-                return;
-            } // This is a final element --> No elements inside
-
-            bool foundMatching = false;
-            foreach(ElementCombination combination in elementCombinations)
-            {
-                Debug.Log($"{combination.elementMaterial.name} ?= {collisionMaterial.name}");
-                if (combination.elementMaterial.mainTexture == collisionMaterial.mainTexture)
+                // The element has a matching combination!
+                // The other object also has a script. To remove only one, we will use a spatial variable.
+                // Spatial chosen variable: y
+                // If spatial y is the same -> Use x
+                Vector3 collidedObjectVector = collidedObject.transform.position;
+                Vector3 thisObjectVector = gameObject.transform.position;
+                // Compare: What block has the highest position?
+                if (collidedObjectVector.y > thisObjectVector.y)
                 {
-                    Debug.Log("Triggered for loop");
-                    foundMatching = true;
-                    // Destroy colling object and remove existing collider on existing object.
-                    if (onCollisionStayBehind) return;
-                    collisionElement.gameObject.GetComponent<Combinations>().onCollisionStayBehind = true;
-                    Destroy(collisionElement.gameObject.GetComponent<Combinations>());
-                    Destroy(collisionElement.gameObject);
-                    gameObject.GetComponent<Collider>().enabled = false;
-                    // Spawn the resulting combination
-                    int index = elementCombinations.IndexOf(combination);
-                    Vector3 gameObjectPos = gameObject.transform.position;
-                    Instantiate(elementCombinations[index].resultPrefab,
-                        new Vector3(gameObjectPos.x, gameObjectPos.y + 1, gameObjectPos.z), Quaternion.identity);
-                    // Remove the existing element
-                    Destroy(gameObject);
-                    break;
+                    // Remove the collided object vector!
+                    collisionElement.gameObject.GetComponent<Combinations>().onCollisionCode = true;
+                    Destroy(collisionElement.gameObject, 1);
+                    resultGameObjectFound = elementCombinations[i].resultPrefab;
+                } 
+                else if (collidedObjectVector.y == thisObjectVector.y)  
+                {   // Comparing floats gives bad result, and can lead to unexpected situations due C# rounding.
+                    // See: https://www.jetbrains.com/help/resharper/CompareOfFloatsByEqualityOperator.html
+                    // Handle the function using spatial x
+                    if (collidedObjectVector.x > thisObjectVector.x)
+                    {
+                        collisionElement.gameObject.GetComponent<Combinations>().onCollisionCode = true;
+                        Destroy(collisionElement.gameObject, 1);
+                        resultGameObjectFound = elementCombinations[i].resultPrefab;
+                    }
+                    onCollisionCode = false; 
+                    return;
+                } 
+                else
+                {
+                    onCollisionCode = false; 
+                    return;
                 }
             }
-
-            // No matching material? Cancel!
-            if (!foundMatching)
+            // Check if object is not null --> Unexpected behaviour.
+            if(resultGameObjectFound is null)
             {
-                Debug.Log("No matching material found");
+                Debug.LogWarning("!! Result game object at element combinations is null. Unexpected behaviour!");
+                onCollisionCode = false; 
                 return;
             }
-        }
-        else
-        {
-            // Combination of elements not allowed.
-            Debug.Log("This collision is with da floor");
+            // Found the correct combination.
+            // Executing combination code.
+            // Replace the existing element with a new result element.  
+
+            Vector3 resultGameObjectLocation = gameObject.transform.position;
+            resultGameObjectLocation.z += 0.5f;
+            Instantiate(resultGameObjectFound, resultGameObjectLocation, Quaternion.identity, null);
+            Destroy(gameObject, 1);
+            onCollisionCode = false;
             return;
         }
     }
+    
+
+    private Material GetGameObjectMaterial(GameObject gameObject)
+    {
+        // Loop over the children and retrieve the tagged element
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            var selectedChild = gameObject.transform.GetChild(i);
+            if (selectedChild.CompareTag("ElementMaterial"))
+            {
+                // Found the element!
+                return selectedChild.GetComponent<MeshRenderer>().sharedMaterial;
+            }
+        }
+        return null;
+    }
+
+    IEnumerator OnCoolDown()
+    {
+        onCoolDown = true;
+        yield return new WaitForSeconds(2);
+        onCoolDown = false;
+    }
+    
 }
