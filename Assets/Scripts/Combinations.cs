@@ -27,11 +27,47 @@ public class Combinations : MonoBehaviour
     private bool _holdingOjbect;
     [NonSerialized] 
     public bool onCollisionStayBehind = false;
-
     public bool onCollisionCode = false;
+
+    public delegate void onNewElementCreation();
+    public static event onNewElementCreation NewElementCreation;
+    
+    // Custom events
 
     void Start()
     {
+        // I have been created!
+        // Check if i have been unlocked before!
+        // Load the SaveData
+        var saveData = SaveData.GetAllUnlockedElementNames();
+        if (saveData == null)
+        {
+            // If data is null --> Ignore start.
+            return;
+        }
+
+        // Get the name of this object
+        Material elementMaterial = GetGameObjectMaterial(this.gameObject);
+        string elementMaterialName = elementMaterial.name;
+        bool matched = false;
+        for (int i = 0; i < saveData.Length; i++)
+        {
+            if (saveData[i] == elementMaterialName)
+            {
+                {
+                    matched = true;
+                    break;
+                }
+            }
+        }
+
+        if (!matched)
+        {
+            // Not been unlocked before!
+            // Trigger unlock so the shelf can spawn it next time.
+            NewElementCreation();
+
+        }
     }
 
     void Update()

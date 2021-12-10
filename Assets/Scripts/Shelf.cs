@@ -26,6 +26,10 @@ public class Shelf : MonoBehaviour
     public Element[] Elements; // Maximum 6 elements
     void Start()
     {
+        // Subscribe to events
+        Combinations.NewElementCreation += UpdateElements;
+        
+        
         SaveData.LogSaveData("UnlockedElements");
         // Populate the shelf with elements
         // Use the children of the shelf as spawn positions.
@@ -178,6 +182,13 @@ public class Shelf : MonoBehaviour
             return;
         }
         SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
+    }
 
+    public void UpdateElements()
+    {
+        // Element spawned event
+        Debug.LogWarning("Element Update Event received!");
+        // Go over the list and update the data!
+        
     }
 }
