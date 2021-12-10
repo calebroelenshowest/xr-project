@@ -5896,7 +5896,7 @@ PrefabInstance:
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
       propertyPath: Elements.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
@@ -5918,6 +5918,17 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
+      propertyPath: Elements.Array.data[3].element
+      value: 
+      objectReference: {fileID: 138380681645529475, guid: b0ef77ce9b1ad20429a0146498166ec6,
+        type: 3}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[3].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
       propertyPath: Elements.Array.data[0].holoGraphicText
       value: CHARCOAL
       objectReference: {fileID: 0}
@@ -5930,6 +5941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Elements.Array.data[2].holoGraphicText
       value: PAPER
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[3].holoGraphicText
+      value: SMOKE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0b25d39ee8d29546bcaaeb1b217bdaa, type: 3}
