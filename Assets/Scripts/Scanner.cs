@@ -51,7 +51,7 @@ public class Scanner : MonoBehaviour
         {
             if (element.Material == ScannedElement)
             {
-                string txtscreen1 = "The scanned element is: \n" + element.Material + "\n Facts: \n " + element.TxtScreenOne;
+                string txtscreen1 = "The scanned element is: \n" + element.Material + "\nFacts: \n" + element.TxtScreenOne;
                 string txtcreen2 = GetUnlockedCombinations(UnlockedElements, element);
                 TxtScreenOne.SetText(txtscreen1);
                 TxtScreenTwo.SetText("Unlocked combinations: \n" + txtcreen2);
@@ -85,10 +85,8 @@ public class Scanner : MonoBehaviour
         string StrUnlockedCombinations = "";
         foreach (var unlockedelement in unlockedelementsarr)
         {
-            Debug.Log("unlocked arr ---> " + unlockedelement);
             foreach (var combination in elementinfo.CombinationsList)
             {
-                Debug.Log("comb arr ---> " + combination.CombinedMaterial + " = " + combination.CombinationResult);
                 if (combination.CombinationResult == unlockedelement)
                 {
                     StrUnlockedCombinations += elementinfo.Material + " + " + combination.CombinedMaterial + " = " + combination.CombinationResult + "\n" ;

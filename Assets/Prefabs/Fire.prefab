@@ -326,15 +326,18 @@ MonoBehaviour:
   elementCombinations:
   - elementPrefab: {fileID: 138380681645529475, guid: 57b74bad47db20c45b4c5f840e012a2d,
       type: 3}
-    resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
-      type: 3}
-  - elementPrefab: {fileID: 0}
     resultPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
       type: 3}
-  - elementPrefab: {fileID: 0}
+  - elementPrefab: {fileID: 138380681645529475, guid: cb7742eed4250ba458e0632492f0e4f7,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
+      type: 3}
+  - elementPrefab: {fileID: 138380681645529475, guid: 4e9620e5761910e4ab3d52b910c8064f,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: b3d9232989d1c554cb0b764de34649d8,
       type: 3}
-  - elementPrefab: {fileID: 0}
+  - elementPrefab: {fileID: 138380681645529475, guid: cc8930e19dd1ce44e8f6d41814d7e533,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
       type: 3}
   onCollisionCode: 0

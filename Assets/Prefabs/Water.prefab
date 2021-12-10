@@ -323,15 +323,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
-  - elementMaterial: {fileID: 2100000, guid: c27ed41091bd89d4da32b2622a76ba6c, type: 2}
+  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: 5a368437fc8783544b77e29c9aeb81a7,
+      type: 3}
+  - elementPrefab: {fileID: 138380681645529475, guid: 1085147c004e77f4fb1afe213ad094a6,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 4e9620e5761910e4ab3d52b910c8064f,
       type: 3}
-  - elementMaterial: {fileID: 2100000, guid: 8c9ef5eb5577f504e92c79f96067c009, type: 2}
+  - elementPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 1085147c004e77f4fb1afe213ad094a6,
       type: 3}
-  - elementMaterial: {fileID: 2100000, guid: e8f0948de5bab62478d2f18ecbd57608, type: 2}
-    resultPrefab: {fileID: 138380681645529475, guid: cb7742eed4250ba458e0632492f0e4f7,
-      type: 3}
+  onCollisionCode: 0
 --- !u!1 &7455871994561190763
 GameObject:
   m_ObjectHideFlags: 0

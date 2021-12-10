@@ -143,7 +143,7 @@ public class Shelf : MonoBehaviour
         Vector3 respawnObjectLocation =
             new Vector3(spawnLocationPosition.x, spawnLocationPosition.y, spawnLocationPosition.z);
         // Create the GameObject without any parent, a null rotation and a fixed new location.
-        GameObject spawnedObject = Instantiate(respawnGameObject, spawnLocationPosition, Quaternion.identity, null);
+        GameObject spawnedObject = Instantiate(respawnGameObject, spawnLocationPosition, Quaternion.Euler(0, 90, 0), null);
         // Destroy the RigidBody so it stays in a fixed location. (aka Remove gravity)
     }
 

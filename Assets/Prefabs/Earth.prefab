@@ -136,6 +136,7 @@ MonoBehaviour:
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
       type: 3}
+  onCollisionCode: 0
 --- !u!114 &7554011317924686922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 924d9469b2cbff54ebebf4c3d1c55d08, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
