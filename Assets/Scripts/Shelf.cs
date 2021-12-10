@@ -36,11 +36,21 @@ public class Shelf : MonoBehaviour
             // Spawnpositions are missing
             throw new Exception("Spawnpositions are missing");
         }
-        // How many elements are added to the shelf?
-        var shelfElementCount = Elements.Length;
         
         // Load save data
-        string[] unlockedElementNames = SaveData.GetAllUnlockedElementNames();
+        var unlockedElementNames = SaveData.GetAllUnlockedElementNames();
+        if (unlockedElementNames is null)
+        {
+            Debug.Log("No SaveData found!");
+            // Initialize Save data with unlocked entries
+            List<Element> unlockedElements = new List<Element>();
+            foreach (Element element in Elements)
+            {
+                if(element.unlocked) unlockedElements.Add(element);
+            }
+            unlockedElementNames = SaveData.InitSaveData(unlockedElements.ToArray());
+        }
+        if (unlockedElementNames is null) return;
         // Are all knows elements filled? No empty list items?
         // Is the element unlocked already?
         Element[] markedForRemoval = new Element[Elements.Length];

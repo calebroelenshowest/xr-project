@@ -16,6 +16,9 @@ public static class SaveData
         string rawData = PlayerPrefs.GetString("UnlockedElements");
         if (rawData is "")
         {
+            // No data found!
+            // Data creation start
+            PlayerPrefs.SetString("UnlockedElements", "");
             return null;
         }
         // Split the data
@@ -70,6 +73,7 @@ public static class SaveData
                 // This element should be unlocked.
                 // Add it to the unlocks
                 AddUnlockByElement(elements[i]);
+                PlayerPrefs.Save();
                 Debug.Log("SaveData: Done adding element");
             }
         }
