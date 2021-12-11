@@ -28,6 +28,12 @@ public class Shelf : MonoBehaviour
 
     public Element[] Elements; // Maximum 6 elements
     public Element[] CopyElements;
+    
+    // Events
+    public delegate void onShelfUpdate();
+    public static event onShelfUpdate onShelfUpdateEvent;
+    
+    
     void Start()
     {
         // Subscribe to events
@@ -214,6 +220,7 @@ public class Shelf : MonoBehaviour
                 SpawnGameObject(CopyElements[i], transform.GetChild(i));
                 // Save it as SaveData
                 SaveData.AddUnlock(elementName);
+                onShelfUpdateEvent();
             }
         }
     }
