@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using Microsoft.Win32.SafeHandles;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,14 +24,17 @@ public class Shelf : MonoBehaviour
 
     public int coolDownPeriod = 2;
     public bool onCoolDown = false;
+    public bool onUnlockCoolDown = false;
 
     public Element[] Elements; // Maximum 6 elements
+    public Element[] CopyElements;
     void Start()
     {
         // Subscribe to events
         Combinations.NewElementCreation += UpdateElements;
-        
-        
+        // Take a copy for later uses
+        CopyElements = Elements;
+        // Log save data
         SaveData.LogSaveData("UnlockedElements");
         // Populate the shelf with elements
         // Use the children of the shelf as spawn positions.
@@ -114,6 +119,15 @@ public class Shelf : MonoBehaviour
         yield return new WaitForSeconds(coolDownPeriod);
         onCoolDown = false;
     }
+
+    IEnumerator OnUnlockCoolDown()
+    {
+        onUnlockCoolDown = true;
+        yield return new WaitForSeconds(2f);
+        onUnlockCoolDown = false;
+    }
+    
+    
     
     public void OnTriggerExit(Collider other)
     {
@@ -183,12 +197,24 @@ public class Shelf : MonoBehaviour
         }
         SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
     }
-
-    public void UpdateElements()
+    public void UpdateElements(GameObject element)
     {
         // Element spawned event
         Debug.LogWarning("Element Update Event received!");
+        if (onUnlockCoolDown) return;
+        StartCoroutine(OnUnlockCoolDown());
         // Go over the list and update the data!
-        
+        for(int i = 0; i < CopyElements.Length; i++)
+        {
+            string elementName = GetElementName(CopyElements[i].element);
+            string updateElementName = GetElementName(element);
+            if (elementName == updateElementName)
+            {
+                // The same. Spawn in now!
+                SpawnGameObject(CopyElements[i], transform.GetChild(i));
+                // Save it as SaveData
+                SaveData.AddUnlock(elementName);
+            }
+        }
     }
 }

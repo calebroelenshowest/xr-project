@@ -29,7 +29,7 @@ public class Combinations : MonoBehaviour
     public bool onCollisionStayBehind = false;
     public bool onCollisionCode = false;
 
-    public delegate void onNewElementCreation();
+    public delegate void onNewElementCreation(GameObject element);
     public static event onNewElementCreation NewElementCreation;
     
     // Custom events
@@ -65,7 +65,7 @@ public class Combinations : MonoBehaviour
         {
             // Not been unlocked before!
             // Trigger unlock so the shelf can spawn it next time.
-            NewElementCreation();
+            NewElementCreation(gameObject);
 
         }
     }
