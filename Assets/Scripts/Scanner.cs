@@ -30,6 +30,7 @@ public class Scanner : MonoBehaviour
     }
 
     public ElementInfo[] elementInfos;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class Scanner : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        //TxtScreenOne.SetText("yolo");
+        audioSource.Play();
         var UnlockedElements = SaveData.GetAllUnlockedElementNames(); 
         string ScannedElement = GetElementName(other.gameObject);
         foreach (var element in elementInfos)

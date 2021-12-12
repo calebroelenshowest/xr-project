@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31880
+  m_Name: pb_Mesh31866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1114,8 +1114,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4914,6 +4914,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 156821359995199531, guid: 106e0f600ce0361469ff2428db6b7abc,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1678201221}
+    - target: {fileID: 156821359995199531, guid: 106e0f600ce0361469ff2428db6b7abc,
+        type: 3}
+      propertyPath: TxtScreenOne
+      value: 
+      objectReference: {fileID: 873487667}
+    - target: {fileID: 156821359995199531, guid: 106e0f600ce0361469ff2428db6b7abc,
+        type: 3}
+      propertyPath: TxtScreenTwo
+      value: 
+      objectReference: {fileID: 406182606}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106e0f600ce0361469ff2428db6b7abc, type: 3}
 --- !u!4 &1678201219 stripped
@@ -4928,149 +4943,102 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1678201218}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1678201221
-MonoBehaviour:
+--- !u!82 &1678201221
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678201220}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68ee420f7253514488e7f1668e92d08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScannerArea: {fileID: 1678201222}
-  TxtScreenOne: {fileID: 873487667}
-  TxtScreenTwo: {fileID: 406182606}
-  elementInfos:
-  - Material: Water
-    TxtFactOne: It covers about 71 percent of the Earth
-    TxtFactTwo: It is an inorganic, transparent, tasteless, odorless, and nearly
-      colorless chemical substance
-    TxtFactThree: It is vital for all known forms of life
-    CombinationsList:
-    - CombinedMaterial: Fire
-      CombinationResult: Steam
-    - CombinedMaterial: Stone
-      CombinationResult: Sand
-    - CombinedMaterial: Earth
-      CombinationResult: Mud
-  - Material: Fire
-    TxtFactOne: is a chemical reaction that releases light and heat
-    TxtFactTwo: Require fuel, oxygen and heat to burn
-    TxtFactThree: Earth is the only known planet where fire can burn
-    CombinationsList:
-    - CombinedMaterial: Earth
-      CombinationResult: Magma
-    - CombinedMaterial: Mud
-      CombinationResult: Clay
-    - CombinedMaterial: Sand
-      CombinationResult: Glass
-    - CombinedMaterial: Wood
-      CombinationResult: Charcoal
-    - CombinedMaterial: Charcoal
-      CombinationResult: Smoke
-    - CombinedMaterial: Water
-      CombinationResult: Steam
-  - Material: Earth
-    TxtFactOne: Contains 29 percent of the world
-    TxtFactTwo: 70000 types in America only
-    TxtFactThree: It takes 500 years to get one inch of mutritious dirt
-    CombinationsList:
-    - CombinedMaterial: Water
-      CombinationResult: Earth
-    - CombinedMaterial: Fire
-      CombinationResult: Magma
-  - Material: Wood
-    TxtFactOne: Was the first drawing material
-    TxtFactTwo: It is an organic material
-    TxtFactThree: It is the most extensively used plant product in the world
-    CombinationsList:
-    - CombinedMaterial: Fire
-      CombinationResult: Charcoal
-    - CombinedMaterial: Steam
-      CombinationResult: Paper
-  - Material: Steam
-    TxtFactOne: Has a lot of energy
-    TxtFactTwo: It's very powerful stuff
-    TxtFactThree: "It's temperature is 100\xB0C"
-    CombinationsList:
-    - CombinedMaterial: Stone
-      CombinationResult: Metal
-    - CombinedMaterial: Metal
-      CombinationResult: Rust
-    - CombinedMaterial: Wood
-      CombinationResult: Paper
-  - Material: Sand
-    TxtFactOne: Is a mixture of very small pieces of different rocks or minerals
-    TxtFactTwo: It's gritty to touch
-    TxtFactThree: It comes in many colors
-    CombinationsList:
-    - CombinedMaterial: Fire
-      CombinationResult: Glass
-  - Material: Mud
-    TxtFactOne: It usually forms after rainfall or near water sources
-    TxtFactTwo: After time it forms a rock such as mudstone
-    TxtFactThree: Pigs bath in mud to stay cool
-    CombinationsList:
-    - CombinedMaterial: Fire
-      CombinationResult: Clay
-  - Material: Magma
-    TxtFactOne: 'It is an extremely hot liquid and semi-liquid rock '
-    TxtFactTwo: It's located under Earth's surface
-    TxtFactThree: "Temperature ranges from 700 \xB0C to 1300 \xB0C"
-    CombinationsList:
-    - CombinedMaterial: Water
-      CombinationResult: Stone
-  - Material: Clay
-    TxtFactOne: Is a type of fine-grained natural soil material
-    TxtFactTwo: Wet clay is soft and can be shaped to make pottery
-    TxtFactThree: Clay soils are yellow to red
-    CombinationsList:
-    - CombinedMaterial: Stone
-      CombinationResult: Brick
-  - Material: Glass
-    TxtFactOne: Adding Minerals to Glass Changes its Color
-    TxtFactTwo: Glass is an amorphous solid
-    TxtFactThree: It's 100% recyclable
-    CombinationsList: []
-  - Material: Charcoal
-    TxtFactOne: It produces only heat
-    TxtFactTwo: It's a lightweight black carbon residue
-    TxtFactThree: It can be used as fuel
-    CombinationsList:
-    - CombinedMaterial: Fire
-      CombinationResult: Smoke
-  - Material: Smoke
-    TxtFactOne: Pure Co2
-    TxtFactTwo: Used for signals by the native Americans
-    TxtFactThree: Has a black color
-    CombinationsList: []
-  - Material: Brick
-    TxtFactOne: The Great Wall of China was made from 3.8 billion bricks
-    TxtFactTwo: The oldest discovered bricks were made from shaped mud
-    TxtFactThree: It's mainly used in the construction secotor
-    CombinationsList: []
-  - Material: Metal
-    TxtFactOne: It conducts electricity and heat relatively well
-    TxtFactTwo: It shows a lustrous appearance
-    TxtFactThree: It has a high melting point and density
-    CombinationsList:
-    - CombinedMaterial: Steam
-      CombinationResult: Rust
-  - Material: Paper
-    TxtFactOne: The Chinese invented paper from hemp around 100 B.C.
-    TxtFactTwo: Schools and universities generate about 562,442 tons of waste each
-      year
-    TxtFactThree: 'It can be recycles 5 - 7 times '
-    CombinationsList: []
---- !u!65 &1678201222 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 3986590754172828135, guid: 106e0f600ce0361469ff2428db6b7abc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1678201218}
-  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 37b70b7bb3dfab545aed8a529f80850b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.564
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3142395
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1690415652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4343568555110130, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
@@ -5529,7 +5497,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31794
+  m_Name: pb_Mesh55660
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6947,7 +6915,7 @@ PrefabInstance:
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
       propertyPath: Elements.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
@@ -6975,7 +6943,29 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
+      propertyPath: Elements.Array.data[4].element
+      value: 
+      objectReference: {fileID: 138380681645529475, guid: ec56c4dfb8e672347ab04b2eb1026560,
+        type: 3}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[5].element
+      value: 
+      objectReference: {fileID: 138380681645529475, guid: 590d025e4d9a98c43b885476727753b8,
+        type: 3}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
       propertyPath: Elements.Array.data[3].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[4].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[5].unlocked
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
@@ -6997,6 +6987,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Elements.Array.data[3].holoGraphicText
       value: SMOKE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[4].holoGraphicText
+      value: RUST
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
+        type: 3}
+      propertyPath: Elements.Array.data[5].holoGraphicText
+      value: SANDSTONE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0b25d39ee8d29546bcaaeb1b217bdaa, type: 3}
