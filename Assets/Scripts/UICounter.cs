@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UICounter : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public TextMeshPro unlocksTextField;
@@ -20,10 +20,11 @@ public class UI : MonoBehaviour
 
     public void UpdateUI()
     {
+        Debug.Log("UI: Update to counter");
         // Update the assigned screen.
         // Get the count
         PlayerPrefs.Save(); // Save all writing operation to the register.
-        int elementCount = SaveData.GetAllUnlockedElementNames().Length;
+        int elementCount = SaveData.GetAllUnlockedElementNames().Length - 1;
         unlocksTextField.SetText($"Unlocked: {elementCount}");
         
     }

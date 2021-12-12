@@ -112,8 +112,13 @@ public class Shelf : MonoBehaviour
         {
             SpawnGameObject(Elements[i], transform.GetChild(i));
         }
+        AfterStart();
     }
-    
+
+    void AfterStart()
+    {
+        onShelfUpdateEvent();
+    }
     void Update()
     {
         
@@ -196,10 +201,22 @@ public class Shelf : MonoBehaviour
                 break;
             }
         }
+
         if (elementToSpawn == default(Element))
         {
             // Its empty! No element corresponded with the exiting element.
-            return;
+            // This might be a new element added by an unlock.
+            for (int i = 0; i < CopyElements.Length; i++)
+            {
+                if (elementName == GetElementName(CopyElements[i].element))
+                {
+                    elementToSpawn = CopyElements[i];
+                }
+            }
+            if (elementToSpawn == default(Element))
+            {
+                return;
+            }
         }
         SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
     }
