@@ -31,7 +31,7 @@ public class TeleportBehaviourController : MonoBehaviour
             {
                 // Teleport to the object if its an accepted object.
                 Vector3 newPosition = transform.position;
-                newPosition.y += 1;
+                newPosition.y += 1.25f;
                 teleportObject.gameObject.transform.position = newPosition;
             }
             

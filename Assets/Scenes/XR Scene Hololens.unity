@@ -4928,7 +4928,7 @@ MonoBehaviour:
   TxtScreenTwo: {fileID: 406182606}
   elementInfos:
   - Material: Water
-    TxtScreenOne: This is water
+    TxtScreenOne: 
     CombinationsList:
     - CombinedMaterial: Fire
       CombinationResult: Steam
@@ -6552,6 +6552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportObject: {fileID: 0}
+  hoverMaterial: {fileID: 0}
 --- !u!114 &2041831620
 MonoBehaviour:
   m_ObjectHideFlags: 0
