@@ -10,12 +10,13 @@ public class UICounter : MonoBehaviour
     void Start()
     {
         Shelf.onShelfUpdateEvent += UpdateUI;
+        UpdateUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateUI();
+        
     }
     public void UpdateUI()
     {
