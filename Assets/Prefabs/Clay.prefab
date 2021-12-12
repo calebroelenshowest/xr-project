@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
-  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+  - elementPrefab: {fileID: 138380681645529475, guid: be4d0d10e2a198e4bbd61e0047183cec,
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 9cbb43932ea2dce4894e4e7a6a38a129,
       type: 3}

@@ -308,9 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementCombinations:
-  - elementMaterial: {fileID: 2100000, guid: 0e11ed4a53731304cb90c65cab5cdf1e, type: 2}
-    resultPrefab: {fileID: 0}
+  elementCombinations: []
+  onCollisionCode: 0
 --- !u!114 &5158951555837076011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations: []
+  onCollisionCode: 0
 --- !u!1 &6849557874800240313
 GameObject:
   m_ObjectHideFlags: 0

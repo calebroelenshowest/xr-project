@@ -136,7 +136,7 @@ MonoBehaviour:
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: cb7742eed4250ba458e0632492f0e4f7,
       type: 3}
-  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+  - elementPrefab: {fileID: 138380681645529475, guid: be4d0d10e2a198e4bbd61e0047183cec,
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
       type: 3}
