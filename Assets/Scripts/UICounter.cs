@@ -15,9 +15,8 @@ public class UICounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateUI();
     }
-
     public void UpdateUI()
     {
         Debug.Log("UI: Update to counter");
