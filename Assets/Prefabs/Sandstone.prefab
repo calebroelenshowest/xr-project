@@ -322,15 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementCombinations:
-  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
-      type: 3}
-    resultPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
-      type: 3}
-  - elementPrefab: {fileID: 138380681645529475, guid: 5a368437fc8783544b77e29c9aeb81a7,
-      type: 3}
-    resultPrefab: {fileID: 138380681645529475, guid: 05c33604f966b70408aca3b421625f35,
-      type: 3}
+  elementCombinations: []
   onCollisionCode: 0
 --- !u!1 &1935444751820823562
 GameObject:

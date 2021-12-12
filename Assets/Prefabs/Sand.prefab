@@ -327,6 +327,10 @@ MonoBehaviour:
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: b3d9232989d1c554cb0b764de34649d8,
       type: 3}
+  - elementPrefab: {fileID: 138380681645529475, guid: 5a368437fc8783544b77e29c9aeb81a7,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: 590d025e4d9a98c43b885476727753b8,
+      type: 3}
   onCollisionCode: 0
 --- !u!1 &6948495156157750422
 GameObject:
