@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: -1148859035747426896}
   - component: {fileID: 6014314442830769766}
   - component: {fileID: 4358061951530979434}
-  - component: {fileID: 7593063271770248965}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Element
@@ -340,20 +339,15 @@ MonoBehaviour:
       type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
       type: 3}
+  - elementPrefab: {fileID: 138380681645529475, guid: 53138e7a368cd3d44a5f30ef27b76db6,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: b0ef77ce9b1ad20429a0146498166ec6,
+      type: 3}
+  - elementPrefab: {fileID: 138380681645529475, guid: 017ddc17f8df4ac4f92ea51bc8fb4bda,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: 5a368437fc8783544b77e29c9aeb81a7,
+      type: 3}
   onCollisionCode: 0
---- !u!114 &7593063271770248965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138380681645529475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1656c22b8b80b36438cc0c48d01cfaa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glassSoundEnabled: 0
 --- !u!1 &6370150533496893529
 GameObject:
   m_ObjectHideFlags: 0

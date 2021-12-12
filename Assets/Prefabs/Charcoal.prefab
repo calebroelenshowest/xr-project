@@ -322,7 +322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a5a5d328e997747802308acfceab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementCombinations: []
+  elementCombinations:
+  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: b0ef77ce9b1ad20429a0146498166ec6,
+      type: 3}
+  onCollisionCode: 0
 --- !u!1 &2487124473539771789
 GameObject:
   m_ObjectHideFlags: 0

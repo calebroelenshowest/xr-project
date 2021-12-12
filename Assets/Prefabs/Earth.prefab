@@ -132,9 +132,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
+  - elementPrefab: {fileID: 138380681645529475, guid: 017ddc17f8df4ac4f92ea51bc8fb4bda,
+      type: 3}
+    resultPrefab: {fileID: 138380681645529475, guid: cb7742eed4250ba458e0632492f0e4f7,
+      type: 3}
   - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
       type: 3}
-    resultPrefab: {fileID: 138380681645529475, guid: ef5647af385a7594491390d55ed4691b,
+    resultPrefab: {fileID: 138380681645529475, guid: ace0460b47bdc374a8e8ce67c215374d,
       type: 3}
   onCollisionCode: 0
 --- !u!114 &7554011317924686922

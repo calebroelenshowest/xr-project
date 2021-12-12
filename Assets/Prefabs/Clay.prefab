@@ -323,9 +323,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations:
-  - elementMaterial: {fileID: 2100000, guid: c27ed41091bd89d4da32b2622a76ba6c, type: 2}
+  - elementPrefab: {fileID: 138380681645529475, guid: 1bcdef5d65994574fae92d3420fb7633,
+      type: 3}
     resultPrefab: {fileID: 138380681645529475, guid: 9cbb43932ea2dce4894e4e7a6a38a129,
       type: 3}
+  onCollisionCode: 0
 --- !u!1 &1265543406810790925
 GameObject:
   m_ObjectHideFlags: 0
