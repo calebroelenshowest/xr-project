@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TrashRemover : MonoBehaviour
 {
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class TrashRemover : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Element"))
         {
+            audioSource.Play();
             Destroy(other.gameObject);
         }
     }

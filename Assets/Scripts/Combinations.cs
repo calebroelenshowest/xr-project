@@ -66,7 +66,6 @@ public class Combinations : MonoBehaviour
             // Not been unlocked before!
             // Trigger unlock so the shelf can spawn it next time.
             NewElementCreation(gameObject);
-
         }
     }
 
