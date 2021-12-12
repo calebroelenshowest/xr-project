@@ -4954,41 +4954,65 @@ MonoBehaviour:
       CombinationResult: Charcoal
     - CombinedMaterial: Charcoal
       CombinationResult: Smoke
+    - CombinedMaterial: Water
+      CombinationResult: Steam
   - Material: Earth
     TxtFactOne: Contains 29 percent of the world
     TxtFactTwo: 70000 types in America only
     TxtFactThree: It takes 500 years to get one inch of mutritious dirt
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Water
+      CombinationResult: Earth
+    - CombinedMaterial: Fire
+      CombinationResult: Magma
   - Material: Wood
     TxtFactOne: Was the first drawing material
     TxtFactTwo: It is an organic material
     TxtFactThree: It is the most extensively used plant product in the world
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Fire
+      CombinationResult: Charcoal
+    - CombinedMaterial: Steam
+      CombinationResult: Paper
   - Material: Steam
     TxtFactOne: Has a lot of energy
     TxtFactTwo: It's very powerful stuff
     TxtFactThree: "It's temperature is 100\xB0C"
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Stone
+      CombinationResult: Metal
+    - CombinedMaterial: Metal
+      CombinationResult: Rust
+    - CombinedMaterial: Wood
+      CombinationResult: Paper
   - Material: Sand
     TxtFactOne: Is a mixture of very small pieces of different rocks or minerals
     TxtFactTwo: It's gritty to touch
     TxtFactThree: It comes in many colors
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Fire
+      CombinationResult: Glass
   - Material: Mud
     TxtFactOne: It usually forms after rainfall or near water sources
     TxtFactTwo: After time it forms a rock such as mudstone
     TxtFactThree: Pigs bath in mud to stay cool
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Fire
+      CombinationResult: Clay
   - Material: Magma
     TxtFactOne: 'It is an extremely hot liquid and semi-liquid rock '
     TxtFactTwo: It's located under Earth's surface
     TxtFactThree: "Temperature ranges from 700 \xB0C to 1300 \xB0C"
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Water
+      CombinationResult: Stone
   - Material: Clay
     TxtFactOne: Is a type of fine-grained natural soil material
     TxtFactTwo: Wet clay is soft and can be shaped to make pottery
     TxtFactThree: Clay soils are yellow to red
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Stone
+      CombinationResult: Brick
   - Material: Glass
     TxtFactOne: Adding Minerals to Glass Changes its Color
     TxtFactTwo: Glass is an amorphous solid
@@ -4998,7 +5022,9 @@ MonoBehaviour:
     TxtFactOne: It produces only heat
     TxtFactTwo: It's a lightweight black carbon residue
     TxtFactThree: It can be used as fuel
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Fire
+      CombinationResult: Smoke
   - Material: Smoke
     TxtFactOne: Pure Co2
     TxtFactTwo: Used for signals by the native Americans
@@ -5013,7 +5039,9 @@ MonoBehaviour:
     TxtFactOne: It conducts electricity and heat relatively well
     TxtFactTwo: It shows a lustrous appearance
     TxtFactThree: It has a high melting point and density
-    CombinationsList: []
+    CombinationsList:
+    - CombinedMaterial: Steam
+      CombinationResult: Rust
   - Material: Paper
     TxtFactOne: The Chinese invented paper from hemp around 100 B.C.
     TxtFactTwo: Schools and universities generate about 562,442 tons of waste each
