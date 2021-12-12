@@ -25,7 +25,7 @@ public class UICounter : MonoBehaviour
         // Get the count
         PlayerPrefs.Save(); // Save all writing operation to the register.
         int elementCount = SaveData.GetAllUnlockedElementNames().Length - 1;
-        unlocksTextField.SetText($"Unlocked: {elementCount}");
+        unlocksTextField.SetText($"Unlocked \n{elementCount} elements");
         
     }
 }

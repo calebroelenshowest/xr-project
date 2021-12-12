@@ -47,16 +47,14 @@ public class Scanner : MonoBehaviour
         //TxtScreenOne.SetText("yolo");
         var UnlockedElements = SaveData.GetAllUnlockedElementNames(); 
         string ScannedElement = GetElementName(other.gameObject);
-        Debug.Log("The scanned element is: " + ScannedElement);
-        Debug.Log(UnlockedElements.GetType());
         foreach (var element in elementInfos)
         {
             if (element.Material == ScannedElement)
             {
-                string txtscreen1 = "The scanned element is: \n" + element.Material + "\nFacts: \n - " + element.TxtFactOne;
+                string txtscreen1 = $"The scanned element is: \n{element.Material}\nFacts:\n - {element.TxtFactOne}\n - {element.TxtFactTwo}\n - {element.TxtFactThree}";
                 string txtcreen2 = GetUnlockedCombinations(UnlockedElements, element);
                 TxtScreenOne.SetText(txtscreen1);
-                TxtScreenTwo.SetText("Unlocked combinations: \n" + txtcreen2);
+                TxtScreenTwo.SetText($"Unlocked combinations: \n{txtcreen2}");
             }
         }
     }
@@ -78,7 +76,6 @@ public class Scanner : MonoBehaviour
                 return gameObjectMaterial.name;
             }
         }
-        Debug.LogWarning($"This element is missing a ElementMaterial Tag! {gameObject}");
         return "";
     }
 
