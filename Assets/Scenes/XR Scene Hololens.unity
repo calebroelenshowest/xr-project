@@ -6956,7 +6956,7 @@ PrefabInstance:
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
       propertyPath: Elements.Array.data[3].unlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7540928226380918973, guid: b0b25d39ee8d29546bcaaeb1b217bdaa,
         type: 3}
