@@ -7,6 +7,7 @@ public class UICounter : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public TextMeshPro unlocksTextField;
+    public AudioSource audioSource;
     void Start()
     {
         Shelf.onShelfUpdateEvent += UpdateUI;
@@ -26,6 +27,10 @@ public class UICounter : MonoBehaviour
         PlayerPrefs.Save(); // Save all writing operation to the register.
         int elementCount = SaveData.GetAllUnlockedElementNames().Length - 1;
         unlocksTextField.SetText($"Unlocked \n{elementCount} elements");
+        if (elementCount == 18)
+        {
+            audioSource.Play();
+        }
         
     }
 }
