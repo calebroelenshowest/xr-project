@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -7907118841604715884}
   - component: {fileID: -746560457853799049}
   - component: {fileID: 7843816155628108488}
+  - component: {fileID: 5288948320089598213}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Element
@@ -322,6 +323,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementCombinations: []
+  onCollisionCode: 0
+--- !u!114 &5288948320089598213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701596154306921407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.47564507, g: 0, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &8701596154373685670
 PrefabInstance:
   m_ObjectHideFlags: 0
