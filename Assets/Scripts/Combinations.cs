@@ -161,24 +161,26 @@ public class Combinations : MonoBehaviour
                     return;
                 }
             }
-            // Check if object is not null --> Unexpected behaviour.
-            if(resultGameObjectFound is null)
-            {
-                Debug.LogWarning("!! Result game object at element combinations is null. Unexpected behaviour!");
-                onCollisionCode = false; 
-                return;
-            }
-            // Found the correct combination.
-            // Executing combination code.
-            // Replace the existing element with a new result element.  
-
-            Vector3 resultGameObjectLocation = gameObject.transform.position;
-            resultGameObjectLocation.z += 0.5f;
-            Instantiate(resultGameObjectFound, resultGameObjectLocation, Quaternion.identity, null);
-            Destroy(gameObject, 1);
-            onCollisionCode = false;
+            
+        }
+        // Check if object is not null --> Unexpected behaviour.
+        if(resultGameObjectFound is null)
+        {
+            // This is not unexpected behaviour --> The element is not in the regular list. Copy to extensive list.
+            onCollisionCode = false; 
             return;
         }
+        // Found the correct combination.
+        // Executing combination code.
+        // Replace the existing element with a new result element.  
+
+        Vector3 resultGameObjectLocation = gameObject.transform.position;
+        resultGameObjectLocation.z += 0.5f;
+        Instantiate(resultGameObjectFound, resultGameObjectLocation, Quaternion.identity, null);
+        Destroy(gameObject, 1);
+        onCollisionCode = false;
+        return;
+        
     }
     
 

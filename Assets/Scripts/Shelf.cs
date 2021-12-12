@@ -200,17 +200,18 @@ public class Shelf : MonoBehaviour
         {
             // Its empty! No element corresponded with the exiting element.
             // This might be a new element added by an unlock.
+            // Check if the position is free to spawn in the original Spawn list!
             for (int i = 0; i < CopyElements.Length; i++)
             {
                 if (elementName == GetElementName(CopyElements[i].element))
                 {
+                    // Extra check. Get next free position.
                     elementToSpawn = CopyElements[i];
+                    SpawnGameObject(elementToSpawn, transform.GetChild(Elements.Length)); // TODO Change from i
+                    return;
                 }
             }
-            if (elementToSpawn == default(Element))
-            {
-                return;
-            }
+            return;
         }
         SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
     }
@@ -228,7 +229,7 @@ public class Shelf : MonoBehaviour
             if (elementName == updateElementName)
             {
                 // The same. Spawn in now!
-                SpawnGameObject(CopyElements[i], transform.GetChild(i));
+                SpawnGameObject(CopyElements[i], transform.GetChild(Elements.Length)); // TODO: From I to Elements.Length
                 // Save it as SaveData
                 SaveData.AddUnlock(elementName);
                 onShelfUpdateEvent();
