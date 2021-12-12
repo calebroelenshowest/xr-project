@@ -53,7 +53,7 @@ public class Scanner : MonoBehaviour
         {
             if (element.Material == ScannedElement)
             {
-                string txtscreen1 = "The scanned element is: \n" + element.Material + "\nFacts: \n - " + element.TxtFactOne + "\n - " + element.TxtFactTwo + "\n - " +element.TxtFactThree;
+                string txtscreen1 = "The scanned element is: \n" + element.Material + "\nFacts: \n - " + element.TxtFactOne;
                 string txtcreen2 = GetUnlockedCombinations(UnlockedElements, element);
                 TxtScreenOne.SetText(txtscreen1);
                 TxtScreenTwo.SetText("Unlocked combinations: \n" + txtcreen2);

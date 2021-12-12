@@ -4928,7 +4928,10 @@ MonoBehaviour:
   TxtScreenTwo: {fileID: 406182606}
   elementInfos:
   - Material: Water
-    TxtScreenOne: 
+    TxtFactOne: It covers about 71 percent of the Earth
+    TxtFactTwo: It is an inorganic, transparent, tasteless, odorless, and nearly
+      colorless chemical substance
+    TxtFactThree: It is vital for all known forms of life
     CombinationsList:
     - CombinedMaterial: Fire
       CombinationResult: Steam
@@ -4937,7 +4940,9 @@ MonoBehaviour:
     - CombinedMaterial: Earth
       CombinationResult: Mud
   - Material: Fire
-    TxtScreenOne: This is fiyah
+    TxtFactOne: is a chemical reaction that releases light and heat
+    TxtFactTwo: Require fuel, oxygen and heat to burn
+    TxtFactThree: Earth is the only known planet where fire can burn
     CombinationsList:
     - CombinedMaterial: Earth
       CombinationResult: Magma
@@ -4949,11 +4954,72 @@ MonoBehaviour:
       CombinationResult: Charcoal
     - CombinedMaterial: Charcoal
       CombinationResult: Smoke
+  - Material: Earth
+    TxtFactOne: Contains 29 percent of the world
+    TxtFactTwo: 70000 types in America only
+    TxtFactThree: It takes 500 years to get one inch of mutritious dirt
+    CombinationsList: []
+  - Material: Wood
+    TxtFactOne: Was the first drawing material
+    TxtFactTwo: It is an organic material
+    TxtFactThree: It is the most extensively used plant product in the world
+    CombinationsList: []
+  - Material: Steam
+    TxtFactOne: Has a lot of energy
+    TxtFactTwo: It's very powerful stuff
+    TxtFactThree: "It's temperature is 100\xB0C"
+    CombinationsList: []
+  - Material: Sand
+    TxtFactOne: Is a mixture of very small pieces of different rocks or minerals
+    TxtFactTwo: It's gritty to touch
+    TxtFactThree: It comes in many colors
+    CombinationsList: []
+  - Material: Mud
+    TxtFactOne: It usually forms after rainfall or near water sources
+    TxtFactTwo: After time it forms a rock such as mudstone
+    TxtFactThree: Pigs bath in mud to stay cool
+    CombinationsList: []
+  - Material: Magma
+    TxtFactOne: 'It is an extremely hot liquid and semi-liquid rock '
+    TxtFactTwo: It's located under Earth's surface
+    TxtFactThree: "Temperature ranges from 700 \xB0C to 1300 \xB0C"
+    CombinationsList: []
   - Material: Clay
-    TxtScreenOne: This is Clay
-    CombinationsList:
-    - CombinedMaterial: Sand
-      CombinationResult: Glass
+    TxtFactOne: Is a type of fine-grained natural soil material
+    TxtFactTwo: Wet clay is soft and can be shaped to make pottery
+    TxtFactThree: Clay soils are yellow to red
+    CombinationsList: []
+  - Material: Glass
+    TxtFactOne: Adding Minerals to Glass Changes its Color
+    TxtFactTwo: Glass is an amorphous solid
+    TxtFactThree: It's 100% recyclable
+    CombinationsList: []
+  - Material: Charcoal
+    TxtFactOne: It produces only heat
+    TxtFactTwo: It's a lightweight black carbon residue
+    TxtFactThree: It can be used as fuel
+    CombinationsList: []
+  - Material: Smoke
+    TxtFactOne: Pure Co2
+    TxtFactTwo: Used for signals by the native Americans
+    TxtFactThree: Has a black color
+    CombinationsList: []
+  - Material: Brick
+    TxtFactOne: The Great Wall of China was made from 3.8 billion bricks
+    TxtFactTwo: The oldest discovered bricks were made from shaped mud
+    TxtFactThree: It's mainly used in the construction secotor
+    CombinationsList: []
+  - Material: Metal
+    TxtFactOne: It conducts electricity and heat relatively well
+    TxtFactTwo: It shows a lustrous appearance
+    TxtFactThree: It has a high melting point and density
+    CombinationsList: []
+  - Material: Paper
+    TxtFactOne: The Chinese invented paper from hemp around 100 B.C.
+    TxtFactTwo: Schools and universities generate about 562,442 tons of waste each
+      year
+    TxtFactThree: 'It can be recycles 5 - 7 times '
+    CombinationsList: []
 --- !u!65 &1678201222 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3986590754172828135, guid: 106e0f600ce0361469ff2428db6b7abc,
