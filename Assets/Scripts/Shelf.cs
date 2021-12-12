@@ -110,7 +110,17 @@ public class Shelf : MonoBehaviour
         Debug.LogWarning($"Element count left: {elementsCount}");
         for (int i = 0; i < elementsCount; i++)
         {
-            SpawnGameObject(Elements[i], transform.GetChild(i));
+            // Changing this code a lot.
+            // Determine the spawn position of a block by its original position in the list.
+            for (int j = 0; j < CopyElements.Length; j++)
+            {
+                if (GetElementName(CopyElements[j].element) == GetElementName(Elements[i].element))
+                {
+                    // Spawn based on the element, but location on the copy of the element.
+                    SpawnGameObject(Elements[i], transform.GetChild(j));
+                    break;
+                }
+            }
         }
     }
     void Update()
@@ -183,37 +193,14 @@ public class Shelf : MonoBehaviour
 
     private void RespawnElement(string elementName)
     {
-        // Find the GameObject in the elements List
-        Element elementToSpawn = default(Element);
-        int elementToSpawnIndex = 0;
-        for (int i = 0; i < Elements.Length; i++)
+        for (int i = 0; i < CopyElements.Length; i++)
         {
-            if (elementName == GetElementName(Elements[i].element))
+            if (GetElementName(CopyElements[i].element) == elementName)
             {
-                elementToSpawn = Elements[i];
-                elementToSpawnIndex = i;
-                break;
+                // Found position and element.
+                SpawnGameObject(CopyElements[i], transform.GetChild(i));
             }
         }
-
-        if (elementToSpawn == default(Element))
-        {
-            // Its empty! No element corresponded with the exiting element.
-            // This might be a new element added by an unlock.
-            // Check if the position is free to spawn in the original Spawn list!
-            for (int i = 0; i < CopyElements.Length; i++)
-            {
-                if (elementName == GetElementName(CopyElements[i].element))
-                {
-                    // Extra check. Get next free position.
-                    elementToSpawn = CopyElements[i];
-                    SpawnGameObject(elementToSpawn, transform.GetChild(Elements.Length)); // TODO Change from i
-                    return;
-                }
-            }
-            return;
-        }
-        SpawnGameObject(elementToSpawn, transform.GetChild(elementToSpawnIndex));
     }
     public void UpdateElements(GameObject element)
     {
@@ -222,18 +209,9 @@ public class Shelf : MonoBehaviour
         if (onUnlockCoolDown) return;
         StartCoroutine(OnUnlockCoolDown());
         // Go over the list and update the data!
-        for(int i = 0; i < CopyElements.Length; i++)
-        {
-            string elementName = GetElementName(CopyElements[i].element);
-            string updateElementName = GetElementName(element);
-            if (elementName == updateElementName)
-            {
-                // The same. Spawn in now!
-                SpawnGameObject(CopyElements[i], transform.GetChild(Elements.Length)); // TODO: From I to Elements.Length
-                // Save it as SaveData
-                SaveData.AddUnlock(elementName);
-                onShelfUpdateEvent();
-            }
-        }
+        string elementName = GetElementName(element);
+        RespawnElement(elementName);
+        SaveData.AddUnlock(elementName);
+        onShelfUpdateEvent();
     }
 }
