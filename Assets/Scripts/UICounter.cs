@@ -10,6 +10,7 @@ public class UICounter : MonoBehaviour
     void Start()
     {
         Shelf.onShelfUpdateEvent += UpdateUI;
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -17,7 +18,6 @@ public class UICounter : MonoBehaviour
     {
         
     }
-
     public void UpdateUI()
     {
         Debug.Log("UI: Update to counter");

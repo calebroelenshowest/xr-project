@@ -112,12 +112,6 @@ public class Shelf : MonoBehaviour
         {
             SpawnGameObject(Elements[i], transform.GetChild(i));
         }
-        AfterStart();
-    }
-
-    void AfterStart()
-    {
-        onShelfUpdateEvent();
     }
     void Update()
     {

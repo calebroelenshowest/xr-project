@@ -1220,6 +1220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
         type: 3}
+      propertyPath: hoverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 341a1bbda1a7bc144b5b69376ab44574, type: 2}
+    - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
+        type: 3}
       propertyPath: teleportObject
       value: 
       objectReference: {fileID: 2041831612}
@@ -2536,6 +2541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
         type: 3}
+      propertyPath: hoverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 341a1bbda1a7bc144b5b69376ab44574, type: 2}
+    - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
+        type: 3}
       propertyPath: teleportObject
       value: 
       objectReference: {fileID: 2041831612}
@@ -3345,6 +3355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
+        type: 3}
+      propertyPath: hoverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 341a1bbda1a7bc144b5b69376ab44574, type: 2}
     - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
         type: 3}
       propertyPath: teleportObject
@@ -5076,6 +5091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
         type: 3}
+      propertyPath: hoverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 341a1bbda1a7bc144b5b69376ab44574, type: 2}
+    - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
+        type: 3}
       propertyPath: teleportObject
       value: 
       objectReference: {fileID: 2041831612}
@@ -6334,6 +6354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
         type: 3}
+      propertyPath: hoverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 341a1bbda1a7bc144b5b69376ab44574, type: 2}
+    - target: {fileID: 6086132257437589970, guid: e080f0f4792f0f14b914c9bd56f622f9,
+        type: 3}
       propertyPath: teleportObject
       value: 
       objectReference: {fileID: 2041831612}
@@ -6473,7 +6498,6 @@ GameObject:
   - component: {fileID: 2041831614}
   - component: {fileID: 2041831617}
   - component: {fileID: 2041831620}
-  - component: {fileID: 2041831618}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6635,20 +6659,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &2041831618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2041831610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85964cd200bffa24daf7b1f8370674b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportObject: {fileID: 0}
-  hoverMaterial: {fileID: 0}
 --- !u!114 &2041831620
 MonoBehaviour:
   m_ObjectHideFlags: 0

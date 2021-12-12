@@ -18,7 +18,7 @@ public class TeleportBehaviourController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        normalMaterial = this.gameObject.GetComponent<Renderer>().materials[0];
+        normalMaterial = gameObject.GetComponent<Renderer>().materials[0];
     }
 
     // Update is called once per frame
