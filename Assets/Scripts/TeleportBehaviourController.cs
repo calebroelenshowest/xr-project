@@ -11,11 +11,14 @@ public class TeleportBehaviourController : MonoBehaviour
     [SerializeField]
     public Camera teleportObject;
 
-    [SerializeField] public Material hoverMaterial;
+    [SerializeField] 
+    public Material hoverMaterial;
+
+    private Material normalMaterial;
     // Start is called before the first frame update
     void Start()
     {
-        
+        normalMaterial = this.gameObject.GetComponent<Renderer>().materials[0];
     }
 
     // Update is called once per frame
@@ -38,16 +41,25 @@ public class TeleportBehaviourController : MonoBehaviour
     public void OnObjectHoverEnter()
     {
         TargetedOnObject = true;
+        ToggleHoverEffect(true);
     }
 
     public void OnObjectHoverExit()
     {
         TargetedOnObject = false;
+        ToggleHoverEffect(false);
     }
 
-    public void ToggleHoverEffect()
+    public void ToggleHoverEffect(bool on)
     {
-        
+        if (on)
+        {
+            gameObject.GetComponent<Renderer>().material = hoverMaterial;
+        }
+        else
+        {
+            gameObject.GetComponent<Renderer>().material = normalMaterial;
+        }
     }
 }
 
